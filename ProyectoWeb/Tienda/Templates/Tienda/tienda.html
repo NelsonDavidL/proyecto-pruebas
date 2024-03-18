@@ -1,0 +1,39 @@
+{% extends "ProyectoWebApp/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="container" style="color: white;">
+    <div class="row">
+      <div class="col-sm" style="text-align: center;">
+        <p>Producto</p>
+      </div>
+      <div class="col-sm" style="text-align: center;">
+        <p>Descripcion</p>
+      </div>
+      <div class="col-sm" style="text-align: center;">
+        <p>Precio</p>
+      </div>
+    </div>
+  </div>
+
+{% for producto in productos %}
+
+<div class="container" style="color: white; text-align: center;">
+    <div class="row">
+      <div class="col-sm" style="width: 50%;">
+        {{producto.nombre}}
+      </div>
+      <div class="col-sm" style="text-align: left;">
+        {{producto.descripcion}}
+      </div>
+      <div class="col-sm">
+        {{producto.precio}}
+      </div>
+    </div>
+  </div>
+
+{% endfor %}
+
+{% endblock %}
