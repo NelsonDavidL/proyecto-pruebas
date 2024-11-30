@@ -43,10 +43,10 @@ def cerrarSesion(request):
 
 def logear(request):
     if request.method=="POST":
-        form=AuthenticationForm(request, data=request.POST)
-        if form.is_valid():
-            nombre_usuario=form.cleaned_data.get("username")
-            contraseña=form.cleaned_data.get("password")
+        form1=AuthenticationForm(request, data=request.POST)
+        if form1.is_valid():
+            nombre_usuario=form1.cleaned_data.get("username")
+            contraseña=form1.cleaned_data.get("password")
             usuario=authenticate(username=nombre_usuario, password=contraseña)
             if usuario is not None:
                 login(request,usuario)
@@ -56,5 +56,5 @@ def logear(request):
         else:
             messages.error(request, "Informacion incorrecta")        
 
-    form=AuthenticationForm()
-    return render (request , "Login/login.html",{"form":form})
+    form1=AuthenticationForm()
+    return render (request , "Login/login.html",{"form":form1})
